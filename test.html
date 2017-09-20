@@ -1,0 +1,787 @@
+<!DOCTYPE>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SWE01 Web</title>
+<style>
+* {
+ margin:0;
+ padding:0
+}
+html, body {
+ height: 100%;
+ width: 100%;
+ font-size:14px;
+ background-color: #27282A;
+}
+h1 {
+	text-align: center;
+	background-color: #1D1E20;
+	color: #0B6DC2;
+	height: 80px;
+	padding-top: 30px;
+}
+.white_content {
+ display: none;
+ position: absolute;
+ top: 25%;
+ left: 25%;
+ width: 50%;
+ padding: 6px 16px;
+ border: 12px solid #D6E9F1;
+ background-color: white;
+ z-index:1002;
+ overflow: auto;
+}
+.black_overlay {
+ display: none;
+ position: absolute;
+ top: 0%;
+ left: 0%;
+ width: 100%;
+ height: 100%;
+ background-color:#f5f5f5;
+ z-index:1001;
+ -moz-opacity: 0.8;
+ opacity:.80;
+ filter: alpha(opacity=80);
+}
+.close {
+ float:right;
+ clear:both;
+ width:100%;
+ text-align:right;
+ margin:0 0 6px 0
+}
+.close a {
+ color:#333;
+ text-decoration:none;
+ font-size:14px;
+ font-weight:700
+}
+.con {
+ text-indent:1.5pc;
+ line-height:21px
+}
+/* .slideTwo */
+.slideTwo {
+  width: 80px;
+  height: 30px;
+  background: #181A19;
+  margin: 20px auto;
+  position: relative;
+/*  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;*/
+  -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+}
+.slideTwo:after {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  height: 2px;
+  width: 52px;
+  background: #111;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+}
+.slideTwo label {
+  display: block;
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+  left: 0px;
+  background: #fcfff4;
+  /*-moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;*/
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.9);
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.9);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.9);
+  background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  background: linear-gradient(to bottom, #313536 0%, #313536 40%, #313536 100%);
+}
+/*.slideTwo label:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background: #27282A;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  -moz-box-shadow: inset 0px 1px 1px black, 0px 1px 0px rgba(255, 255, 255, 0.9);
+  -webkit-box-shadow: inset 0px 1px 1px black, 0px 1px 0px rgba(255, 255, 255, 0.9);
+  box-shadow: inset 0px 1px 1px black, 0px 1px 0px rgba(255, 255, 255, 0.9);
+}*/
+.slideTwo input[type=checkbox] {
+  visibility: hidden;
+}
+.slideTwo input[type=checkbox]:checked + label {
+  left: 40px;
+}
+/*.slideTwo input[type=checkbox]:checked + label:after {
+  background: #10DEF6;
+}
+*/
+/* end .slideTwo */
+.bbD {
+	margin-top: 20px;
+	text-align:center;
+}
+.bbE {
+	margin-top: 20px;
+	text-align: center;
+}
+/*下拉框 */
+.inaudio {
+	color: #C4C5C7;
+  float: left;
+	width: 49%;
+	min-width: 300px;
+	position:absolute;
+	left:20%;	
+	top:20%;
+}
+.cd-select{	
+	position: relative;
+	width: 200px;
+/*	margin: 20px auto;*/
+	display: block;
+	border: 1px solid #ddd;
+	}
+	.outaudio {
+	color: #C4C5C7;
+  float: left;
+	width: 49%;
+	min-width: 300px;
+	position:absolute;
+	left:20%;	
+	top:28%;
+}
+/* end .下拉框 */
+
+/*video*/
+.video {
+	color: #C4C5C7;
+  float: left;
+	width: 49%;
+	min-width: 300px;
+	position:absolute;
+	left:20%;	
+	top:48%;
+}
+/*end. video*/
+
+/* swaudio复选框 */
+.swaudio {
+	color: #C4C5C7;
+	min-width: 200px;
+	position:absolute;
+	left:20%;	
+	top:35%;
+}
+/* end .swaudio复选框 */
+
+/* swhdcp复选框 */
+.hdcp {
+	color: #C4C5C7;
+	min-width: 200px;
+	position:absolute;
+	left:20%;	
+	top:57%;
+}
+/* end .swhdcp复选框 */
+
+/* ip弹出层 */
+.ip {
+	color: #C4C5C7;
+	position:absolute;
+	right:20%;	
+	bottom:20%;
+	/*元素加框，可设置3D
+	height:100px;
+	width:200px;
+	border:1px solid #F00;*/
+}
+/* end .ip弹出层 */
+
+/* about弹出层 */
+.about {
+	color: #C4C5C7;
+	position:absolute;
+	right:20%;	
+	bottom:28%;
+}
+/* end .about弹出层 */
+/*中文*/
+.ch{
+	color: #C4C5C7;
+	position:absolute;
+	right:20%;	
+	bottom:36%;
+	}
+/*end.中文*/
+/*英文*/	
+.en{
+	color: #C4C5C7;
+	position:absolute;
+	right:20%;	
+	bottom:44%;
+	}
+/*end .英文*/	
+</style>
+
+<script>
+function show(tag){
+ var light=document.getElementById(tag);
+ var fade=document.getElementById('fade');
+ light.style.display='block';
+ fade.style.display='block';
+ }
+function hide(tag){
+ var light=document.getElementById(tag);
+ var fade=document.getElementById('fade');
+ light.style.display='none';
+ fade.style.display='none';
+}
+</script>
+
+<script>
+function $(id) { return document.getElementById(id); };
+function SynRadio(o)
+{
+	var i,j;
+	var myStr=o;
+	var index = myStr.indexOf("@");
+	if(index!=-1)<!--找到匹配符-->
+	{			
+		var dat;
+		var subStr = new Array();
+		var datStr = new Array();	
+		myStr=myStr.substr(index+1);
+		subStr=myStr.split('@');
+		<!--alert("subStrlen"+subStr.length);	-->
+		for(i=0;i<subStr.length;i++)
+		{
+			datStr=subStr[i].split('/');
+			switch(datStr[0])
+			{
+				case "v_sw" :
+					var Out = new Array();
+					Out[0] = document.getElementsByName('v_o1');
+					Out[1] = document.getElementsByName('v_o2');
+					Out[2] = document.getElementsByName('v_o3');
+					Out[3] = document.getElementsByName('v_o4');
+					Out[4] = document.getElementsByName('v_o5');
+					Out[5] = document.getElementsByName('v_o6');
+					Out[6] = document.getElementsByName('v_o7');
+					Out[7] = document.getElementsByName('v_o8');
+					for(j=1;(j<datStr.length)&&(j<Out.length+1);j++)<!--不能超过定义数组的长度-->
+					{
+						dat=parseInt(datStr[j],10);
+						if (isNaN(dat)||(dat==0)||(dat>Out[j-1].length))<!--不能超过按钮的个数-->
+							continue;
+						Out[j-1][dat-1].checked = 'true';
+					}	
+				break;
+				case "e_sw" :
+					var In = new Array();
+					In[0] = document.getElementsByName('e_i1');
+					In[1] = document.getElementsByName('e_i2');
+					In[2] = document.getElementsByName('e_i3');
+					In[3] = document.getElementsByName('e_i4');
+					In[4] = document.getElementsByName('e_i5');
+					In[5] = document.getElementsByName('e_i6');
+					In[6] = document.getElementsByName('e_i7');
+					In[7] = document.getElementsByName('e_i8');
+					for(j=1;(j<datStr.length)&&(j<In.length+1);j++)
+					{
+						dat=parseInt(datStr[j],10);
+						if (isNaN(dat)||(dat==0)||(dat>In[j-1].length))continue;
+						In[j-1][dat-1].checked = 'true';
+					}	
+				break;
+			}
+		}
+	}
+}
+
+function httpGetDate()
+{
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open( 'GET', 'all_dat.get'+new Date(), true );
+	xmlHttp.send(); 
+	xmlHttp.onreadystatechange = function(){
+    if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
+			SynRadio(xmlHttp.responseText);
+			setTimeout('httpGetDate()',2000);
+    }
+  }	  
+}
+function httpGet(theUrl)
+{
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open( 'GET', theUrl, false );
+	xmlHttp.send( null );
+	return xmlHttp.responseText;
+}
+function settingsCallback(o) 
+{
+	if ($('txtVer')) $('txtVer').value = o.ver;
+	if ($('txtMac')) $('txtMac').value = o.mac;
+	if ($('txtIp')) $('txtIp').value = o.ip;
+	if ($('txtSub')) $('txtSub').value = o.sub;
+	if ($('txtGw')) $('txtGw').value = o.gw;
+	if ($('txtDns')) $('txtDns').value = o.dns;
+	httpGetDate();
+}
+</script>
+
+</head>
+<body>
+<h1>SWE01 Web</h1>
+
+<!--<div>	
+<iframe name='changeNo' style='display:none;'> </iframe>	
+<form name="changeForm" action="" method="post" target="changeNo">
+<input name="order_no" type="hidden" value="{$vo.order_no}" />
+<select name="staus" id="staus" onchange="DoOnchange()">
+<option value="50" selected="selected">未付款</option>
+<option value="51">已付款</option>
+<option value="52">已发货</option>
+<option value="53">已存档</option>
+</select> 
+</form>
+<script>
+function DoOnchange(){
+  document.changeForm.submit();
+}
+</script> 
+</div>-->
+
+<script>
+function SynRadio(){
+  document.change.submit();
+}
+</script> 
+</script> 
+<div class="inaudio">		
+<iframe name='video_sw' style='display:none;'> </iframe>	
+<form id='video_set' name="change" action="video_out_sel.set" method="post" target="video_sw">	
+<!--使用提交文字填进填充框，然后在提交报单<input name="order_no" type="hidden" value="audio_in_port_sel.set" />
+-->	<img id="**" img src="img/audio01.png" />
+	Audio port
+	<select class="cd-select" name="staus" id="staus" onchange="DoOnchange()" size="1" >
+		<option name="v_o1" value="-1">Audio port</option>
+		<option name="v_o2" value="0">DVI</option>
+  	<option name="v_o3" value="1">VGA</option>
+  	<option name="v_o4" value="2">PD</option>
+  	<option name="v_o5" value="3">SPDIF</option>
+  	<option name="v_o6" value="4">3.5MM</option>
+	</select>
+</div>	
+<!--<p>TX：gui->@audio_in_port_sel.set&i_port=0;</p><br>
+<p>RX：master->@audio_in_port_sel.set&i_port&0;</p>-->
+
+<div class="outaudio">	
+	Audio port
+	<select size="1"  class="cd-select">
+		<option value="-1">Audio port</option>
+		<option value="0">3.5mm</option>
+  	<option value="1">3.5mm+spdif</option>
+  	<option value="2">spdif</option>
+  	<option value="3">no</option>
+	</select>
+</div>	
+<div class="swaudio">
+	Audio SW
+	    <!-- .slideTwo -->
+	    <div class="slideTwo">  
+	      <input type="checkbox" value="None" id="slideTwo" name="check" checked />
+	      <label for="slideTwo"></label>
+	    </div>
+	    <!-- end .slideTwo -->
+</div>	  
+<div class="video">
+	<img id="**" img src="img/video01.png" />
+	Video
+<select size="1"  class="cd-select">
+		<option value="-1">Video port</option>
+		<option value="0">TONGZHUO</option>
+  	<option value="1">DVI</option>
+  	<option value="2">VGA</option>
+  	<option value="3">PD</option>
+  	<option value="4">HDMI1</option>
+  	<option value="5">HDMI2</option>
+  	<option value="6">HDMI3</option>
+  	<option value="7">HDMI4</option>
+	</select>	    
+</div>	
+<div class="hdcp">
+	HDCP SW  
+	    <div class="slideTwo">  
+	      <input type="checkbox" value="1" id="slideTwo1" name="check1" checked />
+	      <label for="slideTwo1"></label>
+	    </div>
+</div>	
+
+<div class="ip"><a href="javascript:void(0)" onClick="show('light')"><img id="**" img src="img/03.png" />ip</a></div>
+<div id="light" class="white_content">
+      <div class="close"><a href="javascript:void(0)" onClick="hide('light')"> 关闭</a></div>
+      <div class="con"> 
+    <form id='frmSetting' method='POST' action='ip.set'>
+          <p class="bbD">
+        <label for='txtIp'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>FW:</strong></label>
+        <label></label>
+        <input type='text' id='txtVer' name='ver' size='16' disabled='disabled' />
+      </p>          
+          <p class="bbD">
+        <label for='txtIp'>&nbsp;&nbsp;<strong>MAC:</strong></label>
+        <label></label>
+        <input type='text' id='txtMac' name='mac' size='16' disabled='disabled' />
+      </p>
+          <p class="bbD">
+        <label for='txtIp'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>IP:</strong></label>
+        <label></label>
+        <input type='text' id='txtIp' name='ip' size='16' />
+      </p>
+          <p class="bbD">
+        <label for='txtSub'><strong>MASK:</strong></label>
+        <label></label>
+        <input type='text' id='txtSub' name='sub' size='16' />
+      </p>
+          <p class="bbD">
+        <label for='txtGw'>&nbsp;&nbsp;&nbsp;&nbsp;<strong>GW:</strong></label>
+        <label></label>
+        <input type='text' id='txtGw' name='gw' size='16' />
+      </p>
+          <p class="bbD">
+        <label for='txtDns'>&nbsp;&nbsp;&nbsp;<strong>DNS:</strong></label>
+        <label></label>
+        <input type='text' id='txtDns' name='dns' size='16' />
+      </p>
+          
+          
+        <ul class="bbd">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button class="userbtn"  input type='submit' value='Save and reset'/>OK</button>
+    </ul>
+        </form>
+       
+      </div>
+</div>
+
+<div class="about"><a href="javascript:void(1)" onClick="show('light1')"><img id="**" img src="img/02.png" />about</a></div>
+<div id="light1" class="white_content">
+      <div class="close"><a href="javascript:void(1)" onClick="hide('light1')"> 关闭</a></div>
+      <div class="con"> 
+			<ul class="bbE"><strong>Company：</strong>&nbsp;&nbsp;&nbsp;&nbsp;Shenzhen Shunxun Electronics Co. Ltd</ul>
+			<ul class="bbE"><strong>Address：</strong>&nbsp;&nbsp;&nbsp;&nbsp;4th/F,Bldg1 , Rongtaijia Industrial,No.2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lisonglang Industrial Zone,, Gongming<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Street, Guangming District</ul>
+			<ul class="bbE"><strong>Tel：</strong>&nbsp;&nbsp;&nbsp;&nbsp;86-755-27153022 07152661</ul>
+			<ul class="bbE"><strong>Fax：</strong>&nbsp;&nbsp;&nbsp;&nbsp;86-755-27152283</ul>
+			<ul class="bbE"><strong>E-mail：</strong>&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:foxson@foxun.com">foxson@foxun.com</a></ul>
+			<ul class="bbE"><strong>WWW：</strong>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.foxun.com";>www.foxun.com</a></ul>           
+
+      </div>
+</div>
+
+<div class="ch">
+<img id="**" img src="img/ch.png" />ch</a>		
+</div>
+
+<div class="en">
+<img id="**" img src="img/en.png" />en</a>		
+</div>
+<!--vol 旋转按钮-->
+<!--<li class="vol">
+<style class="cp-pen-styles">li,
+.vol{
+	color: #C4C5C7;
+	position:absolute;
+	right:28%;	
+	bottom:30%;	
+}
+.dial {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  display: block;
+  margin: 35px auto 15px;
+  cursor: pointer;
+}
+.dial .wrapper {
+ /*圆盘*/
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  left: 50%;
+  top: 50%;
+  margin-left: -100px;
+  margin-top: -100px;
+  border-radius: 200px;
+  cursor: pointer;
+  background: linear-gradient(-45deg, #171717 0%, #272727 100%);
+  box-shadow: inset 0px 1px 1px 0px #999, 0px 0px 0px 4px black;
+}
+.dial .knob {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  left: 50%;
+  top: 50%;
+  margin-left: -100px;
+  margin-top: -100px;
+  border-radius: 200px;
+  cursor: pointer;
+  -webkit-user-select: none;
+}
+.dial .center {
+  position: absolute;
+  background: #c5c8b3;
+  width: 100px;
+  height: 100px;
+  left: 50%;
+  top: 50%;
+  border: 6px solid #1b1c1a;
+  margin-left: -56px;
+  margin-top: -56px;
+  border-radius: 300px;
+  color: white;
+  z-index: 1;
+  -webkit-user-select: none;
+  box-shadow: 0px 0px 2px 2px rgba(255, 255, 255, 0.08), inset 0px 0px 10px 4px #6a6c60;
+}
+.dial .center span {
+  position: relative;
+  display: block;
+  top: 40px;
+  width: 100px;
+  text-align: center;
+  font-size: 24px;
+  color: #454541;
+  font-weight: bold;
+  text-shadow: 0px 1px 0px #eee;
+}
+.dial .handle {
+  position: absolute;
+  background: #171717;
+  width: 46px;
+  height: 46px;
+  left: 50%;
+  top: 50%;
+  margin-left: -23px;
+  margin-top: -112px;
+  border-radius: 46px;
+  box-shadow: inset 0px 0px 6px 4px #1a1a1a, 1px 1px 2px 0px rgba(255, 255, 255, 0.2), inset 1px 2px 4px 2px rgba(0, 0, 0, 0.4), inset -8px -8px 6px 1px #222222;
+}
+.dial .indicator {
+  position: absolute;
+  background: #eeeadc;
+  width: 10px;
+  height: 10px;
+  top: 12px;
+  left: 50%;
+  margin-left: -6px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 1px white;
+}
+.dial .progress {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+}
+</style>
+<figure class="dial">
+  <div class="center"><span>0</span></div>
+  <div class="wrapper">
+    <div class="knob">
+      <div class="handle"></div>
+      <div class="indicator"></div>
+    </div>
+  </div>
+  <canvas class="progress"></canvas>
+</figure>
+<script src='jquery.min.js'></script>
+<script>(function() {
+  var Dial, dial,
+    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
+  Dial = (function() {
+    Dial.prototype.raf = null;
+
+    Dial.prototype.mdown = false;
+
+    Dial.prototype.mPos = {
+      x: 0,
+      y: 0
+    };
+
+    Dial.prototype.elementPosition = {
+      x: 0,
+      y: 0
+    };
+
+    Dial.prototype.target = 0;
+
+    Dial.prototype.steps = 60;
+
+    Dial.prototype.radius = 150;
+
+    Dial.prototype.maxDiff = 150;
+
+    Dial.prototype.constraint = 360;
+
+    Dial.prototype.currentVal = 0;
+
+    function Dial($context) {
+      var knobOffset;
+      this.$context = $context;
+      this.onMouseMove = __bind(this.onMouseMove, this);
+      this.onMouseUp = __bind(this.onMouseUp, this);
+      this.onMouseDown = __bind(this.onMouseDown, this);
+      this.$knob = this.$context.find(".knob");
+      this.$handle = this.$context.find(".handle");
+      this.$progress = this.$context.find(".progress");
+      this.$center = this.$context.find(".center");
+      this.$textOutput = this.$center.find("span");
+      this.ctx = this.$progress.get(0).getContext("2d");
+      knobOffset = this.$knob.offset();
+      this.elementPosition = {
+        x: knobOffset.left,
+        y: knobOffset.top
+      };
+      this.centerX = this.$progress.width() / 2;
+      this.centerY = this.$progress.height() / 2;
+      this.canvasSize = this.$progress.width();
+      this.addEventListeners();
+      this.draw();
+      return;
+    }
+
+    Dial.prototype.addEventListeners = function() {
+      this.$context.on("mousedown", this.onMouseDown);
+      this.$context.on("mousemove", this.onMouseMove);
+      $("body").on("mouseup", this.onMouseUp);
+    };
+
+    Dial.prototype.setDialPosition = function() {
+      this.$knob.css({
+        transform: "rotate(" + this.target + "deg)"
+      });
+      this.$handle.css({
+        transform: "rotate(-" + this.target + "deg)"
+      });
+      this.draw();
+    };
+
+    Dial.prototype.draw = function() {
+      var i, _i, _ref;
+      this.$progress.get(0).height = this.canvasSize;
+      this.$progress.get(0).width = this.canvasSize;
+      this.ctx.save();
+      this.ctx.translate(this.centerX, this.centerY);
+      this.ctx.rotate((-90 * (Math.PI / 180)) - (Math.PI * 2 / this.steps));
+      for (i = _i = 0, _ref = this.steps - 1; _i <= _ref; i = _i += 1) {
+        this.ctx.beginPath();
+        this.ctx.rotate(Math.PI * 2 / this.steps);
+        this.ctx.lineWidth = 2;
+        this.ctx.lineTo(160, 0);
+        this.ctx.lineTo(170, 0);
+        if (i <= Math.floor(this.currentVal)) {
+          this.ctx.shadowBlur = 10;
+          this.ctx.strokeStyle = "#fff";
+          this.ctx.shadowColor = "#fff";
+          if (i > (this.steps * 0.75) && this.currentVal > (this.steps * 0.75)) {
+            this.ctx.strokeStyle = "#ff9306";
+            this.ctx.shadowColor = "#ff9306";
+          }
+          if (i > (this.steps * 0.88) && this.currentVal > (this.steps * 0.88)) {
+            this.ctx.strokeStyle = "#ff0606";
+            this.ctx.shadowColor = "#ff0606";
+          }
+        } else {
+          this.ctx.strokeStyle = "#444";
+          this.ctx.shadowBlur = 0;
+          this.ctx.shadowColor = "#fff";
+        }
+        this.ctx.stroke();
+      }
+      this.ctx.restore();
+    };
+
+    Dial.prototype.setMousePosition = function(event) {
+      var atan, diff, target;
+      this.mPos = {
+        x: event.pageX - this.elementPosition.x,
+        y: event.pageY - this.elementPosition.y
+      };
+      atan = Math.atan2(this.mPos.x - this.radius, this.mPos.y - this.radius);
+      target = -atan / (Math.PI / 180) + 180;
+      diff = Math.abs(target - this.target);
+      if (diff < this.maxDiff && target < this.constraint) {
+        this.target = target;
+        this.currentVal = this.map(this.target, 0, 360, 0, this.steps);
+        this.setDialPosition();
+        this.updateOutput();
+      }
+    };
+
+    Dial.prototype.updateOutput = function() {
+      this.$textOutput.text(Math.round(this.currentVal));
+    };
+
+    Dial.prototype.onMouseDown = function(event) {
+      this.mdown = true;
+    };
+
+    Dial.prototype.onMouseUp = function(event) {
+      this.mdown = false;
+    };
+
+    Dial.prototype.onMouseMove = function(event) {
+      if (this.mdown) {
+        this.setMousePosition(event);
+      }
+    };
+
+    Dial.prototype.map = function(value, low1, high1, low2, high2) {
+      return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+    };
+
+    return Dial;
+
+  })();
+
+  this.$dial = $(".dial");
+
+  dial = new Dial(this.$dial);
+
+}).call(this);
+</script>
+</li>-->
+
+
+<div style="width:100%; text-align:center; font-size:smaller; position:fixed; bottom:100px;">
+Copyright &copy;2003 Foxun corporation</div>
+
+<script type='text/javascript' src='ip.get'></script>
+</body>
+</html>
+
